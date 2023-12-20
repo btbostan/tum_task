@@ -13,19 +13,35 @@
 </style>
 </head>
 <body>
+
+
+    
     <!-- Map container -->
     <div id="map"></div>
 
     <!-- Leaflet JavaScript, placed at the end of the body -->
     <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
     <script>
-        var map = L.map('map').setView([51.1657, 10.4515], 6); // Latitude and longitude of Germany
+        var map = L.map('map').setView([51.1657, 10.4515], 6); // Center on Germany
     
         L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
             maxZoom: 19,
             attribution: '© OpenStreetMap contributors'
         }).addTo(map);
+    
+        fetch('/get-network-data')
+            .then(response => response.json())
+            .then(nodes => {
+                nodes.forEach(node => {
+                    L.marker([parseFloat(node.coordinates.y), parseFloat(node.coordinates.x)])
+                        .bindPopup(node.id)
+                        .addTo(map);
+                });
+            });
     </script>
+    
+
+
     
 </body>
 </html>
