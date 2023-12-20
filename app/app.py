@@ -17,6 +17,12 @@ def get_network_data():
     return jsonify(data['networkStructure']['nodes']['node'])
 
 
+@app.route('/get-link-data')
+def get_link_data():
+    with open('E:\\tum_task\\data\\Germany_Nobel.json', 'r') as file:
+        data = json.load(file)
+    return jsonify(data['networkStructure']['links']['link'])
+
 
 
 
