@@ -13,11 +13,41 @@
 </style>
 </head>
 <body>
-
-
     
+
+
+     <!-- Managing Node -->
+     <div>
+        <h3>Manage Nodes</h3>
+        <form id="manageNodeForm">
+            <input type="text" id="latitude" placeholder="Latitude" required>
+            <input type="text" id="longitude" placeholder="Longitude" required>
+            <button type="submit" id="addNode">Add Node</button>
+            <button type="button" id="deleteNode">Delete Node</button>
+        </form>
+    </div>
+    
+    <!-- Managing Links -->
+
+    <div>
+        <h3>Manage Links</h3>
+        <form id="manageLinkForm">
+            <input type="text" id="sourceLat" placeholder="Source Latitude" required>
+            <input type="text" id="sourceLng" placeholder="Source Longitude" required>
+            <input type="text" id="targetLat" placeholder="Target Latitude" required>
+            <input type="text" id="targetLng" placeholder="Target Longitude" required>
+            <button type="button" id="addLink">Add Link</button>
+            <button type="button" id="deleteLink">Delete Link</button>
+        </form>
+    </div>
+
+
     <!-- Map container -->
-    <div id="map"></div>
+
+    <div>
+        <h3>The Map</h3>
+        <form id="map"></form>
+    </div>
 
     <!-- Leaflet JavaScript, placed at the end of the body -->
     <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
@@ -47,7 +77,7 @@
         var nodes; // nodes data
         var links; // links data
     
-        // Fetch and process nodes
+        // Fetch and process nodes from JSON file
         fetch('/get-network-data') // Assuming you still have this endpoint for nodes
             .then(response => response.json())
             .then(data => {
@@ -83,6 +113,92 @@
         }
     </script>
     
+    <script>
+
+        var markers = {};  // Object to hold markers
+
+        document.getElementById('manageNodeForm').addEventListener('submit', function(e) {
+            e.preventDefault();  // Prevent the default form submission
+
+            var latitude = parseFloat(document.getElementById('latitude').value);
+            var longitude = parseFloat(document.getElementById('longitude').value);
+            var coordKey = `${latitude},${longitude}`; // Create a unique key for the marker
+
+            if (!isNaN(latitude) && !isNaN(longitude)) {
+                if (!markers[coordKey]) {  // Check if marker doesn't already exist
+                    var marker = L.marker([latitude, longitude]).addTo(map);
+                    markers[coordKey] = marker;  // Save the marker
+                } else {
+                    alert("Marker already exists at these coordinates");
+                }
+            } else {
+                alert("Invalid coordinates");
+            }
+        });
+
+        document.getElementById('deleteNode').addEventListener('click', function() {
+            var latitude = parseFloat(document.getElementById('latitude').value);
+            var longitude = parseFloat(document.getElementById('longitude').value);
+            var coordKey = `${latitude},${longitude}`;
+
+            if (!isNaN(latitude) && !isNaN(longitude) && markers[coordKey]) {
+                map.removeLayer(markers[coordKey]);  // Remove the marker from the map
+                delete markers[coordKey];  // Remove the marker from the object
+            } else {
+                alert("No marker found at these coordinates");
+            }
+        });
+
+
+
+        var markers = {};
+        var links = {}; // Object to hold links
+
+  
+    // Link management
+    document.getElementById('addLink').addEventListener('click', function() {
+        var sourceLat = parseFloat(document.getElementById('sourceLat').value);
+        var sourceLng = parseFloat(document.getElementById('sourceLng').value);
+        var targetLat = parseFloat(document.getElementById('targetLat').value);
+        var targetLng = parseFloat(document.getElementById('targetLng').value);
+
+        var sourceKey = `${sourceLat},${sourceLng}`;
+        var targetKey = `${targetLat},${targetLng}`;
+        var linkKey = sourceKey + '-' + targetKey; // Unique key for the link
+
+        if (markers[sourceKey] && markers[targetKey] && !links[linkKey]) {
+            var polyline = L.polyline([markers[sourceKey].getLatLng(), markers[targetKey].getLatLng()], { color: 'blue' }).addTo(map);
+            links[linkKey] = polyline; // Store the link
+        } else {
+            alert("Invalid source/target coordinates or link already exists");
+        }
+    });
+
+    document.getElementById('deleteLink').addEventListener('click', function() {
+        var sourceLat = parseFloat(document.getElementById('sourceLat').value);
+        var sourceLng = parseFloat(document.getElementById('sourceLng').value);
+        var targetLat = parseFloat(document.getElementById('targetLat').value);
+        var targetLng = parseFloat(document.getElementById('targetLng').value);
+
+        var linkKey = `${sourceLat},${sourceLng}-${targetLat},${targetLng}`;
+
+        if (links[linkKey]) {
+            map.removeLayer(links[linkKey]); // Remove the link from the map
+            delete links[linkKey]; // Delete the link
+        } else {
+            alert("No link found between these coordinates");
+        }
+    });
+    </script>
+
+
+
+<script>
+
+
     
+</script>
+
+
 </body>
 </html>
