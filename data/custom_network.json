@@ -1,10 +1,71 @@
 {
     "networkStructure": {
         "nodes": {
-            "node": []
+            "node": [
+                {
+                    "id": "a",
+                    "coordinates": {
+                        "x": "9",
+                        "y": "51"
+                    }
+                },
+                {
+                    "id": "b",
+                    "coordinates": {
+                        "x": "10",
+                        "y": "51"
+                    }
+                },
+                {
+                    "id": "c",
+                    "coordinates": {
+                        "x": "11",
+                        "y": "51"
+                    }
+                },
+                {
+                    "id": "d",
+                    "coordinates": {
+                        "x": "9",
+                        "y": "52"
+                    }
+                },
+                {
+                    "id": "e",
+                    "coordinates": {
+                        "x": "8",
+                        "y": "51"
+                    }
+                }
+            ]
         },
         "links": {
-            "link": []
+            "link": [
+                {
+                    "source": "Hannover",
+                    "target": "Frankfurt"
+                },
+                {
+                    "source": "Hannover",
+                    "target": "Frankfurt"
+                },
+                {
+                    "source": "d",
+                    "target": "a"
+                },
+                {
+                    "source": "d",
+                    "target": "b"
+                },
+                {
+                    "source": "d",
+                    "target": "c"
+                },
+                {
+                    "source": "d",
+                    "target": "e"
+                }
+            ]
         }
     }
 }

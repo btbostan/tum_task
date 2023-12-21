@@ -32,14 +32,8 @@
     <div>
         <h3>Manage Links</h3>
         <form id="manageLinkForm">
-            <div class="input-group">
-                <input type="text" id="sourceLat" placeholder="Source Latitude" required>
-                <input type="text" id="sourceLng" placeholder="Source Longitude" required>
-            </div>
-            <div class="input-group">
-                <input type="text" id="targetLat" placeholder="Target Latitude" required>
-                <input type="text" id="targetLng" placeholder="Target Longitude" required>
-            </div>
+            <input type="text" id="sourceNode" placeholder="Source Node Name" required>
+            <input type="text" id="targetNode" placeholder="Target Node Name" required>
             <button type="button" id="addLink">Add Link</button>
             <button type="button" id="deleteLink">Delete Link</button>
         </form>
@@ -52,9 +46,11 @@
         <form id="map"></form>
     </div>
 
+
     <!-- Leaflet JavaScript, placed at the end of the body -->
     <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
     <script>
+        var lines = {}; // Global varible to store lines
         var map = L.map('map').setView([51.1657, 10.4515], 6); // Center on Germany
     
         L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
@@ -74,7 +70,7 @@
     </script>
     
 
-
+    <!-- Inıtial map import -->
     <script>
 
         var nodes; // nodes data
@@ -111,12 +107,17 @@
                 if (nodeDict[link.source] && nodeDict[link.target]) {
                     var latlngs = [nodeDict[link.source], nodeDict[link.target]];
                     var polyline = L.polyline(latlngs, { color: 'blue' }).addTo(map);
+                    
+                // Store the line reference
+                var lineKey = link.source + "-" + link.target;
+                lines[lineKey] = polyline;
+                    
                 }
             });
         }
     </script>
     
-
+    <!-- Managing nodes -->
     <script>
     var markers = {};  // Object to hold markers
 
@@ -188,51 +189,74 @@
     </script>
 
 
+<!-- Adding Link-->
+
+<script>
+    document.getElementById('addLink').addEventListener('click', function() {
+        var sourceNodeName = document.getElementById('sourceNode').value;
+        var targetNodeName = document.getElementById('targetNode').value;
+
+        fetch('/get-link-coordinates', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({source: sourceNodeName, target: targetNodeName})
+        })
+        .then(response => response.json())
+        .then(data => {
+            if (data.success) {
+    
+                var sourceCoords = data.source;
+                var targetCoords = data.target;
+                var latlngs = [ [sourceCoords.latitude, sourceCoords.longitude], [targetCoords.latitude, targetCoords.longitude] ];
+                var polyline = L.polyline(latlngs, { color: 'blue' }).addTo(map);
+
+                // Optionally store the line for future reference
+                var lineKey = sourceNodeName + "-" + targetNodeName;
+                lines[lineKey] = polyline;
+                alert("Link added successfully");
+            } else {
+                alert(data.message); // Alert if nodes not found or other message
+            }
+        })
+        .catch(err => console.error(err));
+    });
+
+</script>
+
+<!-- Deleting Link -->
 
 <script>
 
-
-        var markers = {};
-        var links = {}; // Object to hold links
-
-  
-    // Link management
-    document.getElementById('addLink').addEventListener('click', function() {
-        var sourceLat = parseFloat(document.getElementById('sourceLat').value);
-        var sourceLng = parseFloat(document.getElementById('sourceLng').value);
-        var targetLat = parseFloat(document.getElementById('targetLat').value);
-        var targetLng = parseFloat(document.getElementById('targetLng').value);
-
-        var sourceKey = `${sourceLat},${sourceLng}`;
-        var targetKey = `${targetLat},${targetLng}`;
-        var linkKey = sourceKey + '-' + targetKey; // Unique key for the link
-
-        if (markers[sourceKey] && markers[targetKey] && !links[linkKey]) {
-            var polyline = L.polyline([markers[sourceKey].getLatLng(), markers[targetKey].getLatLng()], { color: 'blue' }).addTo(map);
-            links[linkKey] = polyline; // Store the link
-        } else {
-            alert("Invalid source/target coordinates or link already exists");
-        }
-    });
-
     document.getElementById('deleteLink').addEventListener('click', function() {
-        var sourceLat = parseFloat(document.getElementById('sourceLat').value);
-        var sourceLng = parseFloat(document.getElementById('sourceLng').value);
-        var targetLat = parseFloat(document.getElementById('targetLat').value);
-        var targetLng = parseFloat(document.getElementById('targetLng').value);
-
-        var linkKey = `${sourceLat},${sourceLng}-${targetLat},${targetLng}`;
-
-        if (links[linkKey]) {
-            map.removeLayer(links[linkKey]); // Remove the link from the map
-            delete links[linkKey]; // Delete the link
-        } else {
-            alert("No link found between these coordinates");
-        }
+        var sourceNode = document.getElementById('sourceNode').value;
+        var targetNode = document.getElementById('targetNode').value;
+        var lineKey = sourceNode + "-" + targetNode;
+        fetch('/delete-link', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({source: sourceNode, target: targetNode})
+        })
+        .then(response => response.json())
+        .then(data => {
+            if (data.success) {
+                    // Use the 'lines' object to find and remove the line
+                if (lines[lineKey]) {
+                    map.removeLayer(lines[lineKey]);  // Remove the line from the map
+                    delete lines[lineKey];  // Remove the line reference from the 'lines' object
+                    alert("Link deleted successfully");
+                } else {
+                    alert("No visual link found on the map.");
+            }
+            }
+        })
+        .catch(err => console.error(err));
     });
-    
-</script>
 
+</script>
 
 </body>
 </html>
