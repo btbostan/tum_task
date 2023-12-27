@@ -1,4 +1,4 @@
-var markers = {};  // Object to hold markers
+
 
     document.getElementById('manageNodeForm').addEventListener('submit', function(e) {
         e.preventDefault();  // Prevent the default form submission
@@ -22,6 +22,7 @@ var markers = {};  // Object to hold markers
                     if(data.success) {
                         var marker = L.marker([latitude, longitude]).addTo(map);
                         markers[coordKey] = marker;  // Save the marker
+                        alert("Node added successfully");
                     } else {
                         alert(data.message); // Alert if node already exists or any other server message
                     }

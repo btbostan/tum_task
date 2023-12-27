@@ -1,6 +1,6 @@
 var nodes; // nodes data
 var links; // links data
-
+var markers = {};  // Object to hold markers
 // Fetch and process nodes from JSON file
 fetch('/get-network-data') // Assuming you still have this endpoint for nodes
     .then(response => response.json())
@@ -17,26 +17,40 @@ fetch('/get-link-data')
         processNodesAndLinks();
     });
 
-function processNodesAndLinks() {
-    if (!nodes || !links) return; // Check if they are exist
-
-    var nodeDict = {};
-    nodes.forEach(node => {
-        var marker = L.marker([parseFloat(node.coordinates.y), parseFloat(node.coordinates.x)])
-            .bindPopup(node.id)
-            .addTo(map);
-        nodeDict[node.id] = marker.getLatLng();
-    });
-
-    links.forEach(link => {
-        if (nodeDict[link.source] && nodeDict[link.target]) {
-            var latlngs = [nodeDict[link.source], nodeDict[link.target]];
-            var polyline = L.polyline(latlngs, { color: 'blue' }).addTo(map);
-            
-        // Store the line reference
-        var lineKey = link.source + "-" + link.target;
-        lines[lineKey] = polyline;
-            
-        }
-    });
-}
+    function processNodesAndLinks() {
+        if (!nodes || !links) return; // Check if nodes and links exist
+    
+        nodes.forEach(node => {
+            if (node.coordinates && node.coordinates.y !== undefined && node.coordinates.x !== undefined) {
+                var latitude = parseFloat(node.coordinates.y);
+                var longitude = parseFloat(node.coordinates.x);
+                var coordKey = `${latitude},${longitude}`;
+    
+                var marker = L.marker([latitude, longitude])
+                    .bindPopup(node.id)
+                    .addTo(map);
+                markers[coordKey] = marker;
+            } else {
+                console.error('Invalid node data:', node);
+            }
+        });
+    
+        links.forEach(link => {
+            // Assuming link.source and link.target are names or IDs of nodes, and you need to find their coordinates
+            var sourceNode = nodes.find(node => node.id === link.source);
+            var targetNode = nodes.find(node => node.id === link.target);
+    
+            if (sourceNode && targetNode) {
+                var sourceCoordKey = `${parseFloat(sourceNode.coordinates.y)},${parseFloat(sourceNode.coordinates.x)}`;
+                var targetCoordKey = `${parseFloat(targetNode.coordinates.y)},${parseFloat(targetNode.coordinates.x)}`;
+    
+                if (markers[sourceCoordKey] && markers[targetCoordKey]) {
+                    var latlngs = [markers[sourceCoordKey].getLatLng(), markers[targetCoordKey].getLatLng()];
+                    var polyline = L.polyline(latlngs, { color: 'blue' }).addTo(map);
+    
+                    var lineKey = link.source + "-" + link.target;
+                    lines[lineKey] = polyline;
+                }
+            }
+        });
+    }

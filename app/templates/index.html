@@ -4,13 +4,15 @@
     <title>Nodes and Links</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
-  
-        <style>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}"/>
+
+
+    <style>
     #map {
         height: 600px;
         width: 900px;
     }
-</style>
+    </style>
 </head>
 <body>
     
@@ -20,9 +22,9 @@
     <div>
         <h3>Manage Nodes</h3>
         <form id="manageNodeForm">
-            <input type="text" id="nodeName" placeholder="Node Name" required>
-            <input type="text" id="latitude" placeholder="Latitude" required>
-            <input type="text" id="longitude" placeholder="Longitude" required>
+            <input type="text" id="nodeName" class="width-80"  placeholder="Node Name" required>
+            <input type="text" id="latitude" class="width-60" placeholder="Latitude" required>
+            <input type="text" id="longitude" class="width-60" placeholder="Longitude" required>
             <button type="submit" id="addNode">Add Node</button>
             <button type="button" id="deleteNode">Delete Node</button>
         </form>

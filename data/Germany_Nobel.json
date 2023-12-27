@@ -1,261 +1,268 @@
 {
-  "networkStructure": {
-    "nodes": {
-      "node": [
-        {
-          "id": "Hannover",
-          "coordinates": {
-            "x": "9.8",
-            "y": "52.39"
-          }
+    "networkStructure": {
+        "nodes": {
+            "node": [
+                {
+                    "id": "Hannover",
+                    "coordinates": {
+                        "x": "9.8",
+                        "y": "52.39"
+                    }
+                },
+                {
+                    "id": "Frankfurt",
+                    "coordinates": {
+                        "x": "8.66",
+                        "y": "50.14"
+                    }
+                },
+                {
+                    "id": "Hamburg",
+                    "coordinates": {
+                        "x": "10.08",
+                        "y": "53.55"
+                    }
+                },
+                {
+                    "id": "Norden",
+                    "coordinates": {
+                        "x": "7.21",
+                        "y": "53.6"
+                    }
+                },
+                {
+                    "id": "Bremen",
+                    "coordinates": {
+                        "x": "8.8",
+                        "y": "53.08"
+                    }
+                },
+                {
+                    "id": "Berlin",
+                    "coordinates": {
+                        "x": "13.48",
+                        "y": "52.52"
+                    }
+                },
+                {
+                    "id": "Muenchen",
+                    "coordinates": {
+                        "x": "11.55",
+                        "y": "48.15"
+                    }
+                },
+                {
+                    "id": "Ulm",
+                    "coordinates": {
+                        "x": "9.99",
+                        "y": "48.4"
+                    }
+                },
+                {
+                    "id": "Nuernberg",
+                    "coordinates": {
+                        "x": "11.08",
+                        "y": "49.45"
+                    }
+                },
+                {
+                    "id": "Stuttgart",
+                    "coordinates": {
+                        "x": "9.12",
+                        "y": "48.73"
+                    }
+                },
+                {
+                    "id": "Karlsruhe",
+                    "coordinates": {
+                        "x": "8.41",
+                        "y": "49.01"
+                    }
+                },
+                {
+                    "id": "Mannheim",
+                    "coordinates": {
+                        "x": "8.49",
+                        "y": "49.49"
+                    }
+                },
+                {
+                    "id": "Essen",
+                    "coordinates": {
+                        "x": "7.0",
+                        "y": "51.44"
+                    }
+                },
+                {
+                    "id": "Dortmund",
+                    "coordinates": {
+                        "x": "7.48",
+                        "y": "51.51"
+                    }
+                },
+                {
+                    "id": "Duesseldorf",
+                    "coordinates": {
+                        "x": "6.78",
+                        "y": "51.22"
+                    }
+                },
+                {
+                    "id": "Koeln",
+                    "coordinates": {
+                        "x": "7.01",
+                        "y": "50.92"
+                    }
+                },
+                {
+                    "id": "Leipzig",
+                    "coordinates": {
+                        "x": "12.38",
+                        "y": "51.34"
+                    }
+                },
+                {
+                    "id": "a",
+                    "coordinates": {
+                        "x": "9",
+                        "y": "51"
+                    }
+                }
+            ]
         },
-        {
-          "id": "Frankfurt",
-          "coordinates": {
-            "x": "8.66",
-            "y": "50.14"
-          }
-        },
-        {
-          "id": "Hamburg",
-          "coordinates": {
-            "x": "10.08",
-            "y": "53.55"
-          }
-        },
-        {
-          "id": "Norden",
-          "coordinates": {
-            "x": "7.21",
-            "y": "53.6"
-          }
-        },
-        {
-          "id": "Bremen",
-          "coordinates": {
-            "x": "8.8",
-            "y": "53.08"
-          }
-        },
-        {
-          "id": "Berlin",
-          "coordinates": {
-            "x": "13.48",
-            "y": "52.52"
-          }
-        },
-        {
-          "id": "Muenchen",
-          "coordinates": {
-            "x": "11.55",
-            "y": "48.15"
-          }
-        },
-        {
-          "id": "Ulm",
-          "coordinates": {
-            "x": "9.99",
-            "y": "48.4"
-          }
-        },
-        {
-          "id": "Nuernberg",
-          "coordinates": {
-            "x": "11.08",
-            "y": "49.45"
-          }
-        },
-        {
-          "id": "Stuttgart",
-          "coordinates": {
-            "x": "9.12",
-            "y": "48.73"
-          }
-        },
-        {
-          "id": "Karlsruhe",
-          "coordinates": {
-            "x": "8.41",
-            "y": "49.01"
-          }
-        },
-        {
-          "id": "Mannheim",
-          "coordinates": {
-            "x": "8.49",
-            "y": "49.49"
-          }
-        },
-        {
-          "id": "Essen",
-          "coordinates": {
-            "x": "7.0",
-            "y": "51.44"
-          }
-        },
-        {
-          "id": "Dortmund",
-          "coordinates": {
-            "x": "7.48",
-            "y": "51.51"
-          }
-        },
-        {
-          "id": "Duesseldorf",
-          "coordinates": {
-            "x": "6.78",
-            "y": "51.22"
-          }
-        },
-        {
-          "id": "Koeln",
-          "coordinates": {
-            "x": "7.01",
-            "y": "50.92"
-          }
-        },
-        {
-          "id": "Leipzig",
-          "coordinates": {
-            "x": "12.38",
-            "y": "51.34"
-          }
+        "links": {
+            "link": [
+                {
+                    "id": "L1",
+                    "source": "Berlin",
+                    "target": "Hamburg"
+                },
+                {
+                    "id": "L2",
+                    "source": "Berlin",
+                    "target": "Hannover"
+                },
+                {
+                    "id": "L3",
+                    "source": "Berlin",
+                    "target": "Leipzig"
+                },
+                {
+                    "id": "L4",
+                    "source": "Bremen",
+                    "target": "Hamburg"
+                },
+                {
+                    "id": "L5",
+                    "source": "Bremen",
+                    "target": "Hannover"
+                },
+                {
+                    "id": "L6",
+                    "source": "Bremen",
+                    "target": "Norden"
+                },
+                {
+                    "id": "L7",
+                    "source": "Dortmund",
+                    "target": "Essen"
+                },
+                {
+                    "id": "L8",
+                    "source": "Dortmund",
+                    "target": "Hannover"
+                },
+                {
+                    "id": "L9",
+                    "source": "Dortmund",
+                    "target": "Koeln"
+                },
+                {
+                    "id": "L10",
+                    "source": "Dortmund",
+                    "target": "Norden"
+                },
+                {
+                    "id": "L11",
+                    "source": "Duesseldorf",
+                    "target": "Essen"
+                },
+                {
+                    "id": "L12",
+                    "source": "Duesseldorf",
+                    "target": "Koeln"
+                },
+                {
+                    "id": "L13",
+                    "source": "Frankfurt",
+                    "target": "Hannover"
+                },
+                {
+                    "id": "L14",
+                    "source": "Frankfurt",
+                    "target": "Koeln"
+                },
+                {
+                    "id": "L15",
+                    "source": "Frankfurt",
+                    "target": "Leipzig"
+                },
+                {
+                    "id": "L16",
+                    "source": "Frankfurt",
+                    "target": "Mannheim"
+                },
+                {
+                    "id": "L17",
+                    "source": "Frankfurt",
+                    "target": "Nuernberg"
+                },
+                {
+                    "id": "L18",
+                    "source": "Hamburg",
+                    "target": "Hannover"
+                },
+                {
+                    "id": "L19",
+                    "source": "Hannover",
+                    "target": "Leipzig"
+                },
+                {
+                    "id": "L20",
+                    "source": "Karlsruhe",
+                    "target": "Mannheim"
+                },
+                {
+                    "id": "L21",
+                    "source": "Karlsruhe",
+                    "target": "Stuttgart"
+                },
+                {
+                    "id": "L22",
+                    "source": "Leipzig",
+                    "target": "Nuernberg"
+                },
+                {
+                    "id": "L23",
+                    "source": "Muenchen",
+                    "target": "Nuernberg"
+                },
+                {
+                    "id": "L24",
+                    "source": "Muenchen",
+                    "target": "Ulm"
+                },
+                {
+                    "id": "L25",
+                    "source": "Nuernberg",
+                    "target": "Stuttgart"
+                },
+                {
+                    "id": "L26",
+                    "source": "Stuttgart",
+                    "target": "Ulm"
+                }
+            ]
         }
-      ]
-    },
-    "links": {
-      "link": [
-        {
-          "id": "L1",
-          "source": "Berlin",
-          "target": "Hamburg"
-        },
-        {
-          "id": "L2",
-          "source": "Berlin",
-          "target": "Hannover"
-        },
-        {
-          "id": "L3",
-          "source": "Berlin",
-          "target": "Leipzig"
-        },
-        {
-          "id": "L4",
-          "source": "Bremen",
-          "target": "Hamburg"
-        },
-        {
-          "id": "L5",
-          "source": "Bremen",
-          "target": "Hannover"
-        },
-        {
-          "id": "L6",
-          "source": "Bremen",
-          "target": "Norden"
-        },
-        {
-          "id": "L7",
-          "source": "Dortmund",
-          "target": "Essen"
-        },
-        {
-          "id": "L8",
-          "source": "Dortmund",
-          "target": "Hannover"
-        },
-        {
-          "id": "L9",
-          "source": "Dortmund",
-          "target": "Koeln"
-        },
-        {
-          "id": "L10",
-          "source": "Dortmund",
-          "target": "Norden"
-        },
-        {
-          "id": "L11",
-          "source": "Duesseldorf",
-          "target": "Essen"
-        },
-        {
-          "id": "L12",
-          "source": "Duesseldorf",
-          "target": "Koeln"
-        },
-        {
-          "id": "L13",
-          "source": "Frankfurt",
-          "target": "Hannover"
-        },
-        {
-          "id": "L14",
-          "source": "Frankfurt",
-          "target": "Koeln"
-        },
-        {
-          "id": "L15",
-          "source": "Frankfurt",
-          "target": "Leipzig"
-        },
-        {
-          "id": "L16",
-          "source": "Frankfurt",
-          "target": "Mannheim"
-        },
-        {
-          "id": "L17",
-          "source": "Frankfurt",
-          "target": "Nuernberg"
-        },
-        {
-          "id": "L18",
-          "source": "Hamburg",
-          "target": "Hannover"
-        },
-        {
-          "id": "L19",
-          "source": "Hannover",
-          "target": "Leipzig"
-        },
-        {
-          "id": "L20",
-          "source": "Karlsruhe",
-          "target": "Mannheim"
-        },
-        {
-          "id": "L21",
-          "source": "Karlsruhe",
-          "target": "Stuttgart"
-        },
-        {
-          "id": "L22",
-          "source": "Leipzig",
-          "target": "Nuernberg"
-        },
-        {
-          "id": "L23",
-          "source": "Muenchen",
-          "target": "Nuernberg"
-        },
-        {
-          "id": "L24",
-          "source": "Muenchen",
-          "target": "Ulm"
-        },
-        {
-          "id": "L25",
-          "source": "Nuernberg",
-          "target": "Stuttgart"
-        },
-        {
-          "id": "L26",
-          "source": "Stuttgart",
-          "target": "Ulm"
-        }
-      ]
     }
-  }
 }
