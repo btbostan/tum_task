@@ -122,9 +122,37 @@
                     }
                 },
                 {
-                    "id": "a",
+                    "id": "kassel",
                     "coordinates": {
-                        "x": "9",
+                        "x": "11",
+                        "y": "51"
+                    }
+                },
+                {
+                    "id": "kassel",
+                    "coordinates": {
+                        "x": "15",
+                        "y": "51"
+                    }
+                },
+                {
+                    "id": "dd",
+                    "coordinates": {
+                        "x": "14",
+                        "y": "51"
+                    }
+                },
+                {
+                    "id": "dde",
+                    "coordinates": {
+                        "x": "7",
+                        "y": "51"
+                    }
+                },
+                {
+                    "id": "ee",
+                    "coordinates": {
+                        "x": "8.5",
                         "y": "51"
                     }
                 }
@@ -146,11 +174,6 @@
                     "id": "L3",
                     "source": "Berlin",
                     "target": "Leipzig"
-                },
-                {
-                    "id": "L4",
-                    "source": "Bremen",
-                    "target": "Hamburg"
                 },
                 {
                     "id": "L5",
@@ -261,6 +284,18 @@
                     "id": "L26",
                     "source": "Stuttgart",
                     "target": "Ulm"
+                },
+                {
+                    "source": "a",
+                    "target": "Leipzig"
+                },
+                {
+                    "source": "Bremen",
+                    "target": "Hamburg"
+                },
+                {
+                    "source": "kassel",
+                    "target": "Hamburg"
                 }
             ]
         }

@@ -1,6 +1,7 @@
 var nodes; // nodes data
 var links; // links data
 var markers = {};  // Object to hold markers
+var lines = {}; 
 // Fetch and process nodes from JSON file
 fetch('/get-network-data') // Assuming you still have this endpoint for nodes
     .then(response => response.json())
@@ -49,6 +50,7 @@ fetch('/get-link-data')
                     var polyline = L.polyline(latlngs, { color: 'blue' }).addTo(map);
     
                     var lineKey = link.source + "-" + link.target;
+
                     lines[lineKey] = polyline;
                 }
             }

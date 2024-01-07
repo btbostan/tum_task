@@ -1,0 +1,42 @@
+2024-01-07 00:06:46 -  * Debugger is active!
+2024-01-07 00:06:46 -  * Debugger PIN: 349-220-344
+2024-01-07 00:08:34 - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2024-01-07 00:08:34 - [33mPress CTRL+C to quit[0m
+2024-01-07 00:08:34 -  * Restarting with stat
+2024-01-07 00:08:35 -  * Debugger is active!
+2024-01-07 00:08:35 -  * Debugger PIN: 349-220-344
+2024-01-07 00:10:02 -  * Debugger is active!
+2024-01-07 00:10:02 -  * Debugger PIN: 349-220-344
+2024-01-07 00:10:09 - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2024-01-07 00:10:09 - [33mPress CTRL+C to quit[0m
+2024-01-07 00:10:09 -  * Restarting with stat
+2024-01-07 00:10:09 -  * Debugger is active!
+2024-01-07 00:10:09 -  * Debugger PIN: 349-220-344
+[2024-01-07 00:39:17 - ] Server started.
+[2024-01-07 00:39:18 - ] Links imported to the map.
+[2024-01-07 00:39:18 - ] Nodes imported to the map.
+[2024-01-07 00:40:54 - ] Server started.
+[2024-01-07 00:40:55 - ] Nodes imported to the map.
+[2024-01-07 00:40:55 - ] Links imported to the map.
+[2024-01-07 00:47:12 - ] Server started.
+[2024-01-07 00:47:13 - ] Nodes imported to the map.
+[2024-01-07 00:47:13 - ] Links imported to the map.
+[2024-01-07 00:48:45 - ] Server started.
+[2024-01-07 00:48:45 - ] Nodes imported to the map.
+[2024-01-07 00:48:45 - ] Links imported to the map.
+[2024-01-07 00:48:56 - 127.0.0.1] {} deleted.
+[2024-01-07 00:49:16 - 127.0.0.1] a added
+[2024-01-07 00:49:21 - 127.0.0.1] {} deleted.
+[2024-01-07 00:50:48 - ] Server started.
+[2024-01-07 00:50:48 - ] Nodes imported to the map.
+[2024-01-07 00:50:48 - ] Links imported to the map.
+[2024-01-07 00:50:52 - 127.0.0.1] ad added
+[2024-01-07 00:50:54 - 127.0.0.1] ad deleted.
+[2024-01-07 00:52:59 - ] Server started.
+[2024-01-07 00:53:00 - ] Links imported to the map.
+[2024-01-07 00:53:00 - ] Nodes imported to the map.
+[2024-01-07 01:10:43 - ] Server started.
+[2024-01-07 01:10:43 - ] Nodes imported to the map.
+[2024-01-07 01:10:43 - ] Links imported to the map.

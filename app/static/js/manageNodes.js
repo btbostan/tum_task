@@ -20,7 +20,7 @@
                 .then(response => response.json())
                 .then(data => {
                     if(data.success) {
-                        var marker = L.marker([latitude, longitude]).addTo(map);
+                        var marker = L.marker([latitude, longitude]).bindPopup(nodeName).addTo(map);
                         markers[coordKey] = marker;  // Save the marker
                         alert("Node added successfully");
                     } else {
@@ -40,14 +40,15 @@
         var latitude = parseFloat(document.getElementById('latitude').value);
         var longitude = parseFloat(document.getElementById('longitude').value);
         var coordKey = `${latitude},${longitude}`;
-
+        var nodeName = document.getElementById('nodeName').value;
+        
         if (!isNaN(latitude) && !isNaN(longitude) && markers[coordKey]) {
             fetch('/delete-node', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
                 },
-                body: JSON.stringify({latitude: latitude, longitude: longitude})
+                body: JSON.stringify({name: nodeName, latitude: latitude, longitude: longitude})
             })
             .then(response => response.json())
             .then(data => {

@@ -1,18 +1,36 @@
 from flask import Flask, render_template, jsonify, request
 import json
-import os
+from datetime import datetime
+import logging
 
 app = Flask(__name__)
 
 network_json_path='E:\\tum_task\\data\Germany_Nobel.json'
+log_path="E:\\tum_task\\log.txt"
+
+class SimpleLogger:
+    def __init__(self, log_file=log_path):
+        self.log_file = log_file
+
+    def log(self, message, ip_address=''):
+        timestamp = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+        log_message = f"[{timestamp} - {ip_address}] {message}\n"
+        
+        with open(self.log_file, 'a') as file:
+            file.write(log_message)
+
+
+logger = SimpleLogger()
 
 def get_json_data():
  
     with open(network_json_path, 'r+') as file:
         return json.load(file)
 
+
 @app.route('/')
 def index():
+    logger.log("Server started.")
     return render_template('index.html')
 
 @app.route('/get-network-data')
@@ -24,7 +42,7 @@ def get_network_data():
 
 
     node_data = data['networkStructure']['nodes']['node']
-
+    logger.log("Nodes imported to the map.")
     return jsonify(node_data)
 
 
@@ -35,7 +53,7 @@ def get_link_data():
         data = json.load(file)
 
     link_data = data['networkStructure']['links']['link']
-
+    logger.log("Links imported to the map.")
     return jsonify(link_data)
 
 
@@ -47,13 +65,18 @@ def add_node():
     node_name = data['name']
     latitude = str(data['latitude'])
     longitude = str(data['longitude'])
-
+    client_ip = request.remote_addr
     file_data = get_json_data()
+    print(client_ip)
 
     # Check if the node already exists
     for node in file_data['networkStructure']['nodes']['node']:
         if (str(node['coordinates']['x']) == longitude and 
             str(node['coordinates']['y']) == latitude):
+
+            logmsg = str(node_name) + " aldready exist. Could not add."
+            logger.log(logmsg, client_ip)
+
             return jsonify({"success": False, "message": "Node already exists"})
 
     # Add new node
@@ -67,6 +90,9 @@ def add_node():
     with open(network_json_path, 'w') as file:
         json.dump(file_data, file, indent=4)
 
+    logmsg = str(node_name)+ "lat: " + str(latitude)+ "long: "+ str(longitude) + " added"
+    logger.log(logmsg, client_ip)
+
     return jsonify({"success": True, "message": "Node added"})
 
 
@@ -74,9 +100,10 @@ def add_node():
 @app.route('/delete-node', methods=['POST'])
 def delete_node():
     data = request.json
+    node_name = data['name']
     latitude = str(data['latitude'])
     longitude = str(data['longitude'])
-
+    client_ip = request.remote_addr
 
 
     with open(network_json_path, 'r+') as file:
@@ -90,12 +117,19 @@ def delete_node():
         node_count_after = len(nodes)
 
         if node_count_before == node_count_after:
+
+            logmsg = str(node_name) + "lat: " + str(latitude)+ "long: "+ str(longitude)+ " Could not delete. Not found."
+            logger.log(logmsg, client_ip)
+
             return jsonify({"success": False, "message": "Node not found"})
 
         # Write the updated data back to the file
         file.seek(0)
         file.truncate()
         json.dump(file_data, file, indent=4)
+
+    logmsg = str(node_name)+ "lat: " + str(latitude)+ "long: "+ str(longitude) + " deleted."
+    logger.log(logmsg, client_ip)
 
     return jsonify({"success": True, "message": "Node deleted"})
 
@@ -104,6 +138,7 @@ def get_link_coordinates():
     data = request.json
     source_node = data['source']
     target_node = data['target']
+    client_ip = request.remote_addr
     # This section is to write data to JSON file
 
 
@@ -116,6 +151,10 @@ def get_link_coordinates():
         target_exists = any(node['id'] == target_node for node in nodes)
 
         if not source_exists or not target_exists:
+
+            logmsg = "Source or target node not found. Link is not added."
+            logger.log(logmsg, client_ip)
+
             return jsonify({"success": False, "message": "Source or target node not found"})
 
         # Add the link
@@ -125,7 +164,8 @@ def get_link_coordinates():
         file.seek(0)
         file.truncate()
         json.dump(file_data, file, indent=4)
-
+    logmsg = "source: "+ source_node +"target: " + target_node + " Link is added."
+    logger.log(logmsg, client_ip)
             
     # This section is to send coordinates to front end
     with open(network_json_path, 'r') as file:
@@ -149,6 +189,7 @@ def delete_link():
     data = request.json
     source_node = data['source']
     target_node = data['target']
+    client_ip = request.remote_addr
 
     with open(network_json_path, 'r+') as file:
         file_data = json.load(file)
@@ -161,6 +202,9 @@ def delete_link():
         link_count_after = len(links)
 
         if link_count_before == link_count_after:
+            logmsg = "source: "+ source_node +"target: " + target_node + " Link not found. Could not delete."
+            logger.log(logmsg, client_ip)
+
             return jsonify({"success": False, "message": "Link not found"})
 
         # Write the updated data back to the file
@@ -168,6 +212,9 @@ def delete_link():
         file.truncate()
         json.dump(file_data, file, indent=4)
 
+    logmsg = "source: "+ source_node +"target: " + target_node + " Link is added."
+    logger.log(logmsg, client_ip)
+    
     return jsonify({"success": True, "message": "Link deleted"})
 
 
