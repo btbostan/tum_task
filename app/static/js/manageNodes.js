@@ -20,7 +20,9 @@
                 .then(response => response.json())
                 .then(data => {
                     if(data.success) {
-                        var marker = L.marker([latitude, longitude]).bindPopup(nodeName).addTo(map);
+                        var marker = L.marker([latitude, longitude])
+                            .bindPopup(nodeName+": "+ latitude+", " + longitude )
+                            .addTo(map);
                         markers[coordKey] = marker;  // Save the marker
                         alert("Node added successfully");
                     } else {

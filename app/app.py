@@ -67,7 +67,6 @@ def add_node():
     longitude = str(data['longitude'])
     client_ip = request.remote_addr
     file_data = get_json_data()
-    print(client_ip)
 
     # Check if the node already exists
     for node in file_data['networkStructure']['nodes']['node']:
@@ -90,7 +89,7 @@ def add_node():
     with open(network_json_path, 'w') as file:
         json.dump(file_data, file, indent=4)
 
-    logmsg = str(node_name)+ "lat: " + str(latitude)+ "long: "+ str(longitude) + " added"
+    logmsg = str(node_name)+ " lat: " + str(latitude)+ " long: "+ str(longitude) + " added"
     logger.log(logmsg, client_ip)
 
     return jsonify({"success": True, "message": "Node added"})
@@ -118,7 +117,7 @@ def delete_node():
 
         if node_count_before == node_count_after:
 
-            logmsg = str(node_name) + "lat: " + str(latitude)+ "long: "+ str(longitude)+ " Could not delete. Not found."
+            logmsg = str(node_name) + " lat: " + str(latitude)+ " long: "+ str(longitude)+ " Could not delete. Not found."
             logger.log(logmsg, client_ip)
 
             return jsonify({"success": False, "message": "Node not found"})
@@ -128,7 +127,7 @@ def delete_node():
         file.truncate()
         json.dump(file_data, file, indent=4)
 
-    logmsg = str(node_name)+ "lat: " + str(latitude)+ "long: "+ str(longitude) + " deleted."
+    logmsg = str(node_name)+ ", lat: " + str(latitude)+ ", long: "+ str(longitude) + " deleted."
     logger.log(logmsg, client_ip)
 
     return jsonify({"success": True, "message": "Node deleted"})
@@ -164,7 +163,7 @@ def get_link_coordinates():
         file.seek(0)
         file.truncate()
         json.dump(file_data, file, indent=4)
-    logmsg = "source: "+ source_node +"target: " + target_node + " Link is added."
+    logmsg = "source: "+ source_node +", target: " + target_node + " Link is added."
     logger.log(logmsg, client_ip)
             
     # This section is to send coordinates to front end
@@ -212,7 +211,7 @@ def delete_link():
         file.truncate()
         json.dump(file_data, file, indent=4)
 
-    logmsg = "source: "+ source_node +"target: " + target_node + " Link is added."
+    logmsg = "source: "+ source_node +", target: " + target_node + " Link is added."
     logger.log(logmsg, client_ip)
     
     return jsonify({"success": True, "message": "Link deleted"})

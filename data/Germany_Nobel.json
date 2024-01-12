@@ -155,6 +155,13 @@
                         "x": "8.5",
                         "y": "51"
                     }
+                },
+                {
+                    "id": "cc",
+                    "coordinates": {
+                        "x": "8",
+                        "y": "51"
+                    }
                 }
             ]
         },
@@ -296,6 +303,10 @@
                 {
                     "source": "kassel",
                     "target": "Hamburg"
+                },
+                {
+                    "source": "cc",
+                    "target": "ee"
                 }
             ]
         }

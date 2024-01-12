@@ -1259,3 +1259,4 @@ tum_task_venv/Scripts/pip3.8.exe
 tum_task_venv/Scripts/pip3.exe
 tum_task_venv/Scripts/python.exe
 tum_task_venv/Scripts/pythonw.exe
+log.txt

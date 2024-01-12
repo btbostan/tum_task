@@ -1,7 +1,7 @@
 var nodes; // nodes data
 var links; // links data
 var markers = {};  // Object to hold markers
-var lines = {}; 
+var lines = {}; // Object to hold lines
 // Fetch and process nodes from JSON file
 fetch('/get-network-data') // Assuming you still have this endpoint for nodes
     .then(response => response.json())
@@ -28,7 +28,7 @@ fetch('/get-link-data')
                 var coordKey = `${latitude},${longitude}`;
     
                 var marker = L.marker([latitude, longitude])
-                    .bindPopup(node.id)
+                    .bindPopup(node.id+ ": "+ node.coordinates.y+ ", "+ node.coordinates.x)
                     .addTo(map);
                 markers[coordKey] = marker;
             } else {

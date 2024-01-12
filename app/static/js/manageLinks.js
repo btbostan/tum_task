@@ -18,7 +18,7 @@ document.getElementById('addLink').addEventListener('click', function() {
             var latlngs = [ [sourceCoords.latitude, sourceCoords.longitude], [targetCoords.latitude, targetCoords.longitude] ];
             var polyline = L.polyline(latlngs, { color: 'blue' }).addTo(map);
 
-            // Optionally store the line for future reference
+            // Store the line for future events
             var lineKey = sourceNodeName + "-" + targetNodeName;
             lines[lineKey] = polyline;
             alert("Link added successfully");
