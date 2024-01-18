@@ -71,3 +71,126 @@
 [2024-01-12 16:53:28 - ] Server started.
 [2024-01-12 16:53:28 - ] Nodes imported to the map.
 [2024-01-12 16:53:28 - ] Links imported to the map.
+[2024-01-12 18:28:28 - ] Server started.
+[2024-01-12 18:28:29 - ] Server started.
+[2024-01-12 18:28:30 - ] Nodes imported to the map.
+[2024-01-12 18:28:30 - ] Links imported to the map.
+[2024-01-12 18:29:08 - ] Server started.
+[2024-01-12 18:29:09 - ] Nodes imported to the map.
+[2024-01-12 18:29:09 - ] Links imported to the map.
+[2024-01-12 18:29:10 - ] Server started.
+[2024-01-12 18:29:11 - ] Nodes imported to the map.
+[2024-01-12 18:29:11 - ] Links imported to the map.
+[2024-01-12 18:29:11 - ] Server started.
+[2024-01-12 18:29:12 - ] Nodes imported to the map.
+[2024-01-12 18:29:12 - ] Links imported to the map.
+[2024-01-12 18:30:06 - ] Server started.
+[2024-01-12 18:30:07 - ] Nodes imported to the map.
+[2024-01-12 18:30:07 - ] Links imported to the map.
+[2024-01-12 18:30:08 - ] Server started.
+[2024-01-12 18:30:08 - ] Nodes imported to the map.
+[2024-01-12 18:30:08 - ] Links imported to the map.
+[2024-01-12 18:30:08 - ] Server started.
+[2024-01-12 18:30:09 - ] Nodes imported to the map.
+[2024-01-12 18:30:09 - ] Links imported to the map.
+[2024-01-12 18:30:09 - ] Server started.
+[2024-01-12 18:30:10 - ] Nodes imported to the map.
+[2024-01-12 18:30:10 - ] Links imported to the map.
+[2024-01-12 18:30:10 - ] Server started.
+[2024-01-12 18:30:10 - ] Nodes imported to the map.
+[2024-01-12 18:30:10 - ] Links imported to the map.
+[2024-01-12 18:30:11 - ] Server started.
+[2024-01-12 18:30:12 - ] Nodes imported to the map.
+[2024-01-12 18:30:12 - ] Links imported to the map.
+[2024-01-12 18:32:09 - ] Server started.
+[2024-01-12 18:32:11 - ] Nodes imported to the map.
+[2024-01-12 18:32:11 - ] Links imported to the map.
+[2024-01-12 18:33:04 - ] Server started.
+[2024-01-12 18:33:05 - ] Nodes imported to the map.
+[2024-01-12 18:33:05 - ] Links imported to the map.
+[2024-01-12 18:33:06 - ] Server started.
+[2024-01-12 18:33:08 - ] Links imported to the map.
+[2024-01-12 18:33:08 - ] Nodes imported to the map.
+[2024-01-12 18:34:06 - ] Server started.
+[2024-01-12 18:34:07 - ] Nodes imported to the map.
+[2024-01-12 18:34:07 - ] Links imported to the map.
+[2024-01-12 18:34:07 - ] Server started.
+[2024-01-12 18:34:08 - ] Nodes imported to the map.
+[2024-01-12 18:34:08 - ] Links imported to the map.
+[2024-01-12 18:34:25 - ] Server started.
+[2024-01-12 18:34:26 - ] Nodes imported to the map.
+[2024-01-12 18:34:26 - ] Links imported to the map.
+[2024-01-12 18:34:26 - ] Server started.
+[2024-01-12 18:34:27 - ] Nodes imported to the map.
+[2024-01-12 18:34:27 - ] Links imported to the map.
+[2024-01-12 18:34:29 - ] Server started.
+[2024-01-12 18:34:29 - ] Nodes imported to the map.
+[2024-01-12 18:34:29 - ] Links imported to the map.
+[2024-01-12 18:34:44 - ] Server started.
+[2024-01-12 18:34:46 - ] Links imported to the map.
+[2024-01-12 18:34:46 - ] Nodes imported to the map.
+[2024-01-13 13:28:22 - ] Server started.
+[2024-01-13 13:28:23 - ] Nodes imported to the map.
+[2024-01-13 13:28:23 - ] Links imported to the map.
+[2024-01-13 13:29:37 - ] Server started.
+[2024-01-13 13:29:37 - ] Links imported to the map.
+[2024-01-13 13:29:37 - ] Nodes imported to the map.
+[2024-01-13 13:30:00 - ] Server started.
+[2024-01-13 13:30:00 - ] Nodes imported to the map.
+[2024-01-13 13:30:00 - ] Links imported to the map.
+[2024-01-13 18:06:08 - ] Server started.
+[2024-01-13 18:06:09 - ] Links imported to the map.
+[2024-01-13 18:06:09 - ] Nodes imported to the map.
+[2024-01-13 18:10:52 - 127.0.0.1] source: dd, target: kassel Link is added.
+[2024-01-13 18:11:03 - 127.0.0.1] source: dd, target: kassel Link is added.
+[2024-01-13 18:12:30 - 127.0.0.1] kassel, lat: 51, long: 15 deleted.
+[2024-01-13 19:30:49 - 127.0.0.1] kassel lat: 51 long: 15 added
+[2024-01-13 19:31:27 - 127.0.0.1] kads lat: 51 long: 16 added
+[2024-01-13 19:36:44 - 127.0.0.1] kads lat: 51.321 long: 17 added
+[2024-01-13 19:36:58 - 127.0.0.1] source: kads, target: kassel Link is added.
+[2024-01-13 19:37:11 - 127.0.0.1] kads, lat: 51.321, long: 17 deleted.
+[2024-01-13 19:46:53 - ] Server started.
+[2024-01-13 19:46:55 - ] Nodes imported to the map.
+[2024-01-13 19:46:55 - ] Links imported to the map.
+[2024-01-13 19:48:42 - ] Server started.
+[2024-01-13 19:48:45 - ] Nodes imported to the map.
+[2024-01-13 19:48:45 - ] Links imported to the map.
+[2024-01-13 19:49:54 - ] Server started.
+[2024-01-13 19:49:55 - ] Nodes imported to the map.
+[2024-01-13 19:49:55 - ] Links imported to the map.
+[2024-01-13 19:51:35 - ] Server started.
+[2024-01-13 19:51:37 - ] Nodes imported to the map.
+[2024-01-13 19:51:37 - ] Links imported to the map.
+[2024-01-13 19:52:13 - ] Server started.
+[2024-01-13 19:52:15 - ] Nodes imported to the map.
+[2024-01-13 19:52:15 - ] Links imported to the map.
+[2024-01-13 19:55:05 - ] Server started.
+[2024-01-13 19:55:07 - ] Nodes imported to the map.
+[2024-01-13 19:55:07 - ] Links imported to the map.
+[2024-01-13 19:55:18 - 127.0.0.1] ee aldready exist. Could not add.
+[2024-01-13 19:55:38 - ] Server started.
+[2024-01-13 19:55:39 - ] Nodes imported to the map.
+[2024-01-13 19:55:39 - ] Links imported to the map.
+[2024-01-13 19:56:14 - 127.0.0.1] ee aldready exist. Could not add.
+[2024-01-13 19:56:34 - 127.0.0.1] ee aldready exist. Could not add.
+[2024-01-13 19:57:15 - ] Server started.
+[2024-01-13 19:57:17 - ] Nodes imported to the map.
+[2024-01-13 19:57:17 - ] Links imported to the map.
+[2024-01-13 19:57:23 - 127.0.0.1] ded lat: 52 long: 8.2 added
+[2024-01-14 11:41:49 - ] Server started.
+[2024-01-14 11:41:50 - ] Links imported to the map.
+[2024-01-14 11:41:50 - ] Nodes imported to the map.
+[2024-01-14 11:42:03 - 127.0.0.1] kassel, lat: 51, long: 15 deleted.
+[2024-01-14 11:42:09 - ] Server started.
+[2024-01-14 11:42:09 - ] Nodes imported to the map.
+[2024-01-14 11:42:09 - ] Links imported to the map.
+[2024-01-14 11:42:31 - 127.0.0.1] Source or target node not found. Link is not added.
+[2024-01-14 12:20:46 - ] Server started.
+[2024-01-14 12:20:46 - ] Nodes imported to the map.
+[2024-01-14 12:20:46 - ] Links imported to the map.
+[2024-01-18 19:27:36 - 127.0.0.1] Server started.
+[2024-01-18 19:27:36 - 127.0.0.1] Server started.
+[2024-01-18 19:27:39 - 127.0.0.1] Nodes imported to the map.
+[2024-01-18 19:27:39 - 127.0.0.1] Links imported to the map.
+[2024-01-18 19:27:39 - 127.0.0.1] Nodes imported to the map.
+[2024-01-18 19:27:39 - 127.0.0.1] Links imported to the map.

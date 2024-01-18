@@ -10,3 +10,39 @@
 .width-120 {
     width: 120px;
 }
+
+
+body, html {
+    height: 100%;
+    margin: 0;
+}
+
+#mapContainer {
+    position: relative; /* Needed to position the forms over the map */
+    height: 100%;
+}
+
+#managementForms {
+    position: absolute;
+    top: 10px; 
+    left: 50px; 
+    z-index: 1000; /* Ensures forms stay above the map */
+
+    /* This container holds your forms */
+    background: rgba(255, 255, 255, 0.7); /* Semi-transparent background */
+    padding: 10px;
+    border-radius: 5px;
+}
+
+#map {
+    width: 100%;
+    height: 100%;
+}
+
+/* Full screen map */
+html, body, #map {
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+}

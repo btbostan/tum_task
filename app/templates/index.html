@@ -7,49 +7,56 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}"/>
 
 
-    <style>
-    #map {
-        height: 600px;
-        width: 900px;
-    }
-    </style>
 </head>
 <body>
     
-
-
-     <!-- Managing Node -->
-    <div>
-        <h3>Manage Nodes</h3>
-        <form id="manageNodeForm">
-            <input type="text" id="nodeName" class="width-80"  placeholder="Node Name" required>
-            <input type="text" id="latitude" class="width-60" placeholder="Latitude" required>
-            <input type="text" id="longitude" class="width-60" placeholder="Longitude" required>
-            <button type="submit" id="addNode">Add Node</button>
-            <button type="button" id="deleteNode">Delete Node</button>
-        </form>
+    <div id="mapContainer">
+        <div id="managementForms">
+            <!-- Managing Node and Links -->
+            <div>
+                    <!-- Managing Node -->
+                <h3>Manage Nodes</h3>
+                <form id="manageNodeForm">
+                    <input type="text" id="nodeName" class="width-80"  placeholder="Node Name" required>
+                    <input type="text" id="latitude" class="width-60" placeholder="Latitude" required>
+                    <input type="text" id="longitude" class="width-60" placeholder="Longitude" required>
+                    <button type="submit" id="addNode">Add Node</button>
+                    <button type="button" id="deleteNode">Delete Node</button>
+                </form>
+            </div>
+            
+            <!-- Managing Links -->
+            <div>
+                <h3>Manage Links</h3>
+                <form id="manageLinkForm">
+                    <input type="text" id="sourceNode" class="width-120" placeholder="Source Node Name" required>
+                    <input type="text" id="targetNode" class="width-120" placeholder="Target Node Name" required>
+                    <button type="button" id="addLink">Add Link</button>
+                    <button type="button" id="deleteLink">Delete Link</button>
+                </form>
+            </div>
+        
+        </div>
+        <div id="map"></div> <!-- Map container -->
     </div>
+
+
     
-    <!-- Managing Links -->
-    <div>
-        <h3>Manage Links</h3>
-        <form id="manageLinkForm">
-            <input type="text" id="sourceNode" class="width-120" placeholder="Source Node Name" required>
-            <input type="text" id="targetNode" class="width-120" placeholder="Target Node Name" required>
-            <button type="button" id="addLink">Add Link</button>
-            <button type="button" id="deleteLink">Delete Link</button>
-        </form>
-    </div>
+
+
+
+
+
 
 
     <!-- Map container -->
-    <div>
+    <!-- <div>
         <h3>The Map</h3>
         <form id="map"></form>
-    </div>
+    </div> -->
 
 
-    <!-- Leaflet JavaScript, placed at the end of the body -->
+    <!-- Js files -->
     <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
     <script src="static/js/setupMap.js"></script>
 

@@ -3,7 +3,7 @@ var links; // links data
 var markers = {};  // Object to hold markers
 var lines = {}; // Object to hold lines
 // Fetch and process nodes from JSON file
-fetch('/get-network-data') // Assuming you still have this endpoint for nodes
+fetch('/get-network-data')
     .then(response => response.json())
     .then(data => {
         nodes = data;

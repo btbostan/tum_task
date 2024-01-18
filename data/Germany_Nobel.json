@@ -129,13 +129,6 @@
                     }
                 },
                 {
-                    "id": "kassel",
-                    "coordinates": {
-                        "x": "15",
-                        "y": "51"
-                    }
-                },
-                {
                     "id": "dd",
                     "coordinates": {
                         "x": "14",
@@ -161,6 +154,20 @@
                     "coordinates": {
                         "x": "8",
                         "y": "51"
+                    }
+                },
+                {
+                    "id": "kads",
+                    "coordinates": {
+                        "x": "16",
+                        "y": "51"
+                    }
+                },
+                {
+                    "id": "ded",
+                    "coordinates": {
+                        "x": "8.2",
+                        "y": "52"
                     }
                 }
             ]
@@ -307,6 +314,10 @@
                 {
                     "source": "cc",
                     "target": "ee"
+                },
+                {
+                    "source": "kads",
+                    "target": "kassel"
                 }
             ]
         }
